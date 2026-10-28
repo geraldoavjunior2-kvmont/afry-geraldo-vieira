@@ -52,6 +52,7 @@ export interface SummaryByDiscipline {
   completed_gate1: number;
   completed_gate2: number;
   released_for_commissioning: number;
+  released_to_commissioning: number;
 }
 
 // Fetch all equipment
