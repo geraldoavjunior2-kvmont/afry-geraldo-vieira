@@ -34,8 +34,16 @@ export default function Home() {
   return (
     <main className="container">
       <header className="header">
-        <h1>MC&C Control System</h1>
-        <p>Area 5072 - CAPTAÇÃO (Water Intake)</p>
+        <div className="header-logo">
+          <span className="header-logo-text">AFRY</span>
+        </div>
+        <div className="header-content">
+          <h1>MC&amp;C Control System</h1>
+          <p>Area 5072 — CAPTAÇÃO (Water Intake) · Commissioning Gate Control</p>
+        </div>
+        <div className="header-badge">
+          <span>AFRY Engineering</span>
+        </div>
       </header>
 
       <nav className="tabs">

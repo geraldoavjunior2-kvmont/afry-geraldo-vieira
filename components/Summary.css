@@ -1,4 +1,4 @@
-/* Summary Styles */
+/* Summary Styles — AFRY palette */
 
 .summary-container {
   width: 100%;
@@ -8,31 +8,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .summary-header h2 {
   margin: 0;
-  font-size: 22px;
-  color: #333;
+  font-size: 20px;
+  color: var(--grey-800);
 }
 
 .btn-refresh {
-  padding: 10px 20px;
+  padding: 9px 18px;
   border: none;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--brand-gradient);
+  color: var(--white);
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(27, 94, 59, 0.25);
 }
 
 .btn-refresh:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 10px rgba(27, 94, 59, 0.35);
 }
 
 .btn-refresh:active {
@@ -42,77 +42,85 @@
 /* Summary Grid */
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 20px;
 }
 
 .summary-card {
-  background: white;
-  border: 1px solid #e0e0e0;
+  background: var(--white);
+  border: 1px solid var(--grey-200);
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: all 0.25s ease;
 }
 
 .summary-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+  transform: translateY(-3px);
 }
 
 .summary-card h3 {
-  font-size: 18px;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid #667eea;
-  color: #333;
+  font-size: 17px;
+  margin-bottom: 18px;
+  padding-bottom: 13px;
+  border-bottom: 2px solid var(--moss-500);
+  color: var(--moss-700);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .summary-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 25px;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .stat {
-  background: #f9f9f9;
-  padding: 15px;
+  background: var(--grey-100);
+  padding: 14px;
   border-radius: 6px;
   text-align: center;
-  border-left: 4px solid #ddd;
+  border-left: 4px solid var(--grey-200);
+  transition: border-color 0.2s;
+}
+
+.stat:hover {
+  border-left-color: var(--moss-400);
 }
 
 .stat label {
   display: block;
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 8px;
-  font-weight: 500;
+  font-size: 11px;
+  color: var(--grey-600);
+  margin-bottom: 7px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 .stat .value {
   display: block;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
-  color: #333;
+  color: var(--grey-800);
 }
 
 .stat .value.success {
-  color: #2e7d32;
+  color: var(--moss-700);
 }
 
 .stat .value.highlight {
-  color: #667eea;
+  color: var(--teal-500);
 }
 
 /* Progress Section */
 .progress-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
 .progress {
@@ -121,41 +129,45 @@
 }
 
 .progress label {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 8px;
+  font-size: 11px;
+  color: var(--grey-600);
+  margin-bottom: 6px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 .progress-bar {
   width: 100%;
-  height: 24px;
-  background-color: #f0f0f0;
-  border-radius: 12px;
+  height: 22px;
+  background-color: var(--grey-200);
+  border-radius: 11px;
   overflow: hidden;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--grey-200);
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: var(--brand-gradient);
   transition: width 0.4s ease;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  color: white;
+  color: var(--white);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   padding-right: 6px;
+}
+
+.progress-fill.gate2 {
+  background: linear-gradient(90deg, var(--teal-600) 0%, var(--teal-400) 100%);
 }
 
 .progress-text {
   display: block;
-  font-size: 12px;
-  color: #666;
-  margin-top: 6px;
+  font-size: 11px;
+  color: var(--grey-600);
+  margin-top: 5px;
   font-weight: 500;
 }
 
@@ -168,7 +180,7 @@
   .summary-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 12px;
   }
 }
 
@@ -186,7 +198,7 @@
   }
 
   .summary-header h2 {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .btn-refresh {
