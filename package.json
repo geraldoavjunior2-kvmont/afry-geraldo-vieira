@@ -1,0 +1,26 @@
+{
+  "name": "mcc-water-intake-system",
+  "version": "1.0.0",
+  "description": "MC&C Commissioning Control System for Water Intake (Area 5072)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.0",
+    "@supabase/supabase-js": "^2.38.0",
+    "@tanstack/react-table": "^8.13.0",
+    "date-fns": "^2.30.0",
+    "classnames": "^2.3.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/node": "^20.0.0"
+  }
+}
