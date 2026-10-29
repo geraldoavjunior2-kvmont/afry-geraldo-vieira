@@ -38,10 +38,21 @@ export default function TabDiscipline({ discipline }: Props) {
     }
   };
 
+  const recompute = (eq: MCCEquipment): MCCEquipment => {
+    const gate1 = eq.infra === 1 && eq.cable_laying === 1 && eq.connection === 1;
+    const gate2 = eq.tests === 1 && eq.walkdown_punch_list === 'OK';
+    return {
+      ...eq,
+      gate1_status: gate1 ? '⚑' : '🔒',
+      gate2_status: gate2 ? '⚑' : '🔒',
+      backlog_status: gate1 ? 'Liberado para Comissionamento A Frio' : 'Aguardando MC',
+    };
+  };
+
   const handleUpdate = async (id: number, field: keyof MCCEquipment, value: unknown) => {
     try {
       await updateEquipment(id, { [field]: value } as Partial<MCCEquipment>);
-      setEquipment((prev) => prev.map((eq) => eq.id === id ? { ...eq, [field]: value } : eq));
+      setEquipment((prev) => prev.map((eq) => eq.id === id ? recompute({ ...eq, [field]: value }) : eq));
     } catch (err) {
       alert(`Erro ao atualizar: ${err instanceof Error ? err.message : 'Desconhecido'}`);
     }
