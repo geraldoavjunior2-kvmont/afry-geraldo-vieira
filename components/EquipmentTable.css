@@ -27,6 +27,24 @@
   border-right: 1px solid rgba(255,255,255,0.1);
 }
 
+.equipment-table thead tr:first-child th.th-gate1 {
+  text-align: center;
+  background-color: var(--moss-700);
+  border-left: 2px solid rgba(255,255,255,0.2);
+  border-right: 2px solid rgba(255,255,255,0.2);
+}
+
+.equipment-table thead tr:first-child th.th-gate2 {
+  text-align: center;
+  background-color: var(--teal-700);
+  border-left: 2px solid rgba(255,255,255,0.2);
+  border-right: 2px solid rgba(255,255,255,0.2);
+}
+
+.equipment-table thead tr:last-child th.th-sub {
+  text-align: center;
+}
+
 .equipment-table thead tr:last-child th {
   padding: 7px 6px;
   text-align: center;
@@ -139,10 +157,69 @@
   min-width: 90px;
 }
 
+/* Gate 1 toggle cells */
+.equipment-table td.gate1-cell {
+  text-align: center;
+  padding: 6px 4px;
+  min-width: 58px;
+}
+
+.gate1-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 34px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 800;
+  font-family: 'Courier New', monospace;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.gate1-btn.gate1-on {
+  background-color: var(--moss-100);
+  color: var(--moss-700);
+  border-color: var(--moss-400);
+  box-shadow: 0 1px 4px rgba(27,94,59,0.25);
+}
+
+.gate1-btn.gate1-off {
+  background-color: #fff0f0;
+  color: var(--accent-red);
+  border-color: #f0b8b8;
+}
+
+.gate1-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
 /* Action Buttons */
 .equipment-table td.actions {
   text-align: center;
-  min-width: 100px;
+  min-width: 60px;
+}
+
+.btn-delete {
+  padding: 5px 9px;
+  border: 1px solid #f0b8b8;
+  border-radius: 4px;
+  background: #fff0f0;
+  color: var(--accent-red);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+  background: var(--accent-red);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(192,57,43,0.35);
 }
 
 .btn-edit,

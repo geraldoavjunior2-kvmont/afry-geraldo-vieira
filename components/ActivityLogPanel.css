@@ -1,0 +1,104 @@
+.log-panel {
+  margin-top: 24px;
+}
+
+.btn-log {
+  padding: 8px 16px;
+  background: var(--grey-100);
+  border: 1px solid var(--grey-200);
+  border-radius: 6px;
+  color: var(--grey-600);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-log:hover {
+  background: var(--moss-50);
+  color: var(--moss-700);
+  border-color: var(--moss-200);
+}
+
+.log-container {
+  margin-top: 12px;
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: var(--grey-100);
+  border-bottom: 1px solid var(--grey-200);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--grey-600);
+}
+
+.btn-refresh-log {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--moss-600);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.log-loading, .log-empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--grey-400);
+  font-size: 13px;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.log-table thead {
+  background: var(--moss-900);
+  color: var(--white);
+}
+
+.log-table thead th {
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.log-table tbody tr {
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.log-table tbody tr:hover { background: var(--moss-50); }
+
+.log-table td {
+  padding: 7px 10px;
+  color: var(--grey-800);
+}
+
+.log-date { color: var(--grey-600); white-space: nowrap; }
+.log-tag { font-family: 'Courier New', monospace; font-weight: 600; color: var(--moss-700); }
+.log-old { color: var(--accent-red); }
+.log-new { color: var(--moss-700); font-weight: 600; }
+
+.log-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.log-insert { background: var(--moss-100); color: var(--moss-700); }
+.log-update { background: var(--teal-50); color: var(--teal-700); }
+.log-delete { background: #ffebee; color: var(--accent-red); }
