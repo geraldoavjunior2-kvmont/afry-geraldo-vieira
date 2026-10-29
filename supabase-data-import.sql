@@ -795,8 +795,9 @@ ON CONFLICT (equipment_id) DO UPDATE SET
 
 -- Gate 2
 INSERT INTO gate2_handover (equipment_id, tests_megger_hipot_loop, walkdown_punch_list)
-SELECT eq.id, e.tests, e.walkdown
-FROM equipment eq, (VALUES
+SELECT DISTINCT ON (eq.id) eq.id, e.tests, e.walkdown
+FROM equipment eq
+JOIN (VALUES
   ('11-5072-TRF-1000', 0, 'NOK'),
   ('11-5072-RES-1100', 0, 'NOK'),
   ('11-5072-CCM-1100', 0, 'NOK'),
@@ -837,7 +838,6 @@ FROM equipment eq, (VALUES
   ('11-5072-PDC-0021', 0, 'NOK'),
   ('11-5072-PLT-0021-1', 0, 'NOK'),
   ('11-5072-PLT-0021-3', 0, 'NOK'),
-  ('11-5072-TRA-0030', 0, 'NOK'),
   ('11-5072-PDC-0031', 0, 'NOK'),
   ('11-5072-GER-0018', 0, 'NOK'),
   ('11-5072-PLT-0031-1', 0, 'NOK'),
@@ -919,9 +919,6 @@ FROM equipment eq, (VALUES
   ('11-5072-BBA-0002', 0, 'NOK'),
   ('11-5072-BBA-0003', 0, 'NOK'),
   ('11-5072-BBA-0004', 0, 'NOK'),
-  ('11-5072-GRM-0006', 0, 'NOK'),
-  ('11-5072-GRM-0007', 0, 'NOK'),
-  ('11-5072-TPT-0008', 0, 'NOK'),
   ('11-5072-STP-0001', 0, 'NOK'),
   ('11-5072-STP-0002', 0, 'NOK'),
   ('11-5072-STP-0003', 0, 'NOK'),
@@ -930,7 +927,6 @@ FROM equipment eq, (VALUES
   ('11-5072-STP-0006', 0, 'NOK'),
   ('11-5072-STP-0007', 0, 'NOK'),
   ('11-5072-STP-0008', 0, 'NOK'),
-  ('11-5072-CPS-0021', 0, 'NOK'),
   ('11-5072-CPS-0021', 0, 'NOK'),
   ('11-5072-VSO-0025', 0, 'NOK'),
   ('11-5072-VSO-0028', 0, 'NOK'),
@@ -943,14 +939,7 @@ FROM equipment eq, (VALUES
   ('11-5072-TNQ-0015', 0, 'NOK'),
   ('11-5072-TNQ-0016', 0, 'NOK'),
   ('11-5072-GER-0017', 0, 'NOK'),
-  ('11-5072-GER-0018', 0, 'NOK'),
   ('11-5072-BBA-0020', 0, 'NOK'),
-  ('11-5072-0003-PSV-0001', 0, 'NOK'),
-  ('11-5072-0003-PSV-0001', 0, 'NOK'),
-  ('11-5072-0003-PSV-0001', 0, 'NOK'),
-  ('11-5072-0003-PSV-0001', 0, 'NOK'),
-  ('11-5072-0003-PSV-0001', 0, 'NOK'),
-  ('11-5072-GRD-1000', 0, 'NOK'),
   ('11-5072-0001-WNT-1200-150H1A', 0, 'NOK'),
   ('11-5072-0002-WNT-1000-150H1A', 0, 'NOK'),
   ('11-5072-0003-WNT-1200-150H1A', 0, 'NOK'),
@@ -987,13 +976,9 @@ FROM equipment eq, (VALUES
   ('11-5072-0021-WFP-80-150H1A-CC', 0, 'NOK'),
   ('11-5072-0026-WCI-100-150C1B', 0, 'NOK'),
   ('11-5072-0022-WFP-40-150H1A-CC', 0, 'NOK'),
-  ('11-5072-0046-WNT-500-150H1A', 0, 'NOK'),
-  ('11-5072-0046-WNT-500-150H1A', 0, 'NOK'),
-  ('11-5072-0046-WNT-500-150H1A', 0, 'NOK'),
-  ('11-5072-0046-WNT-500-150H1A', 0, 'NOK'),
   ('11-5072-0046-WNT-500-150H1A', 0, 'NOK')
-) AS e(tag, tests, walkdown)
-WHERE eq.tag = e.tag
+) AS e(tag, tests, walkdown) ON eq.tag = e.tag
+ORDER BY eq.id
 ON CONFLICT (equipment_id) DO UPDATE SET
   tests_megger_hipot_loop=EXCLUDED.tests_megger_hipot_loop, walkdown_punch_list=EXCLUDED.walkdown_punch_list;
 
